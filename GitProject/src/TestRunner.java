@@ -17,6 +17,8 @@ public class TestRunner
 
         Solution.main(new String[0]);
 
-        Assert.assertEquals(inOut.getOutputString().trim(), new String(out.toByteArray()).trim());
+        String exp = inOut.getOutputString().trim().replaceAll("\r\n","\n");
+        String act = new String(out.toByteArray()).trim().replaceAll("\r\n","\n");
+        Assert.assertEquals(exp, act);
     }
 }
